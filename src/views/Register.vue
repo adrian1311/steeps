@@ -43,7 +43,7 @@
 		const url = "http://localhost:8080/steps/api/createUser";
 	   axios.post(url, {
                     username: this.username,
-                    registration_password: this.registration_password
+                    password: this.registration_password
                 })
         .then(function (response) {
           console.log(response);
