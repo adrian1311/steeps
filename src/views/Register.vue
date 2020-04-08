@@ -16,7 +16,7 @@
       <button type="button" class="btn btn-primary"  v-on:click="getUsers" >Show all users</button>
       <div>
       <ul>
-        <li  v-for="item in items" v-bind:key="item">{{item}}</li>
+        <li  v-for="item in items" :key="item.id">{{item}}</li>
       </ul>
             
       </div>
@@ -67,6 +67,7 @@
       // READ ALL USERS DB
 
       getUsers(){
+        //let self=this;
         const url = "http://localhost:8080/api/readAllUsers";
          axios.get(url)
         .then(function (response) {
