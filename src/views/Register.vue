@@ -11,13 +11,23 @@
 				<label for="exampleInputPassword1">Password</label>
 				<input type="password" class="form-control" placeholder="Password" v-model="registration_password">
 		  </div>
-			<button type="button" class="btn btn-primary"  v-on:click="registerUser" >Submit</button>
-	</form>
+			<button type="button" class="btn btn-primary"  v-on:click="registerUser" >Save User</button>
+      <hr>
+      <button type="button" class="btn btn-primary"  v-on:click="getUsers" >Show all users</button>
+      <div>
+      <ul>
+        <li  v-for="item in items" v-bind:key="item">{{item}}</li>
+      </ul>
+            
+      </div>
+      
+  </form>
 	
 	
   </div>
 </template>
 <style>
+  
 	@import "https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css";
 </style>
 <script type="application/javascript">
@@ -32,7 +42,8 @@
 	
       return {
 		username: "",
-        registration_password: ""
+        registration_password: "",
+        items:[]
         
       }
     },
@@ -40,13 +51,27 @@
     methods: {
 	
       registerUser() {
-		const url = "http://localhost:8080/steps/api/createUser";
+		const url = "http://localhost:8080/api/createUser";
 	   axios.post(url, {
                     username: this.username,
                     password: this.registration_password
                 })
         .then(function (response) {
           console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      },
+
+      // READ ALL USERS DB
+
+      getUsers(){
+        const url = "http://localhost:8080/api/readAllUsers";
+         axios.get(url)
+        .then(function (response) {
+          self.items = response.data;
+          console.log(self.items);
         })
         .catch(function (error) {
           console.log(error);

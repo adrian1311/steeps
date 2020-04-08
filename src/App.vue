@@ -7,9 +7,9 @@
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		<div class="navbar-nav">
-			<router-link to="/"><a class="nav-item nav-link">Home</a></router-link>
-			<router-link to="/about"><a class="nav-item nav-link">About</a></router-link> 
-			<router-link to="/register"><a class="nav-item nav-link">Register</a></router-link> 
+			<!--router-link to="/"><a class="nav-item nav-link">Home</a></router-link-->
+			<!--router-link to="/about"><a class="nav-item nav-link">About</a></router-link--> 
+			<router-link to="/register"><a class="nav-item nav-link">Register User</a></router-link> 
 			<router-link to="/registerFly"><a class="nav-item nav-link">Register Fly</a></router-link> 
 		</div>
 		</div>
