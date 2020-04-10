@@ -4,13 +4,18 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueGoodTable from 'vue-good-table'
+import 'vue-good-table/dist/vue-good-table.css'
 
-Vue.use(VueAxios, axios)
+Vue.use(VueAxios, axios);
+Vue.use(VueGoodTable);
 
 Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
+  axios,
+  VueGoodTable,
   render: h => h(App)
 }).$mount('#app')

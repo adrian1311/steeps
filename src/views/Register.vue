@@ -15,10 +15,21 @@
       <hr>
       <button type="button" class="btn btn-primary"  v-on:click="getUsers" >Show all users</button>
       <div>
-      <ul>
+      <hr>
+      <!--ul>
         <li  v-for="item in items" :key="item.id">{{item}}</li>
-      </ul>
-            
+      </ul-->
+
+
+          <div>
+
+          <vue-good-table
+                  :columns="columns"
+                  :rows="items"
+                                     >
+          </vue-good-table>
+
+          </div>
       </div>
       
   </form>
@@ -37,13 +48,31 @@
   
   
   export default {
+    name: "Register",
+    props: {
+            msg: String
+        },
     
 	data() {
 	
       return {
 		username: "",
         registration_password: "",
-        items:[]
+        items:[],
+                columns: [
+                    {
+                        label: "Id",
+                        field: "id"
+                    },
+                    {
+                        label: "user",
+                        field: "username",
+                    },
+                    {
+                        label: "pass",
+                        field: "password",
+                    }
+                ]
         
       }
     },
@@ -67,7 +96,7 @@
       // READ ALL USERS DB
 
       getUsers(){
-        //let self=this;
+        let self=this;
         const url = "http://localhost:8080/api/readAllUsers";
          axios.get(url)
         .then(function (response) {
