@@ -11,6 +11,7 @@
 			<!--router-link to="/about"><a class="nav-item nav-link">About</a></router-link--> 
 			<router-link to="/register"><a class="nav-item nav-link">Register User</a></router-link> 
 			<router-link to="/registerFly"><a class="nav-item nav-link">Register Fly</a></router-link> 
+			<router-link to="/searchFly"><a class="nav-item nav-link">Search Fly</a></router-link>
 		</div>
 		</div>
 	</nav>
