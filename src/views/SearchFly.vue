@@ -12,9 +12,21 @@
       <input type="text" class="form-control" id="to_city" v-model="to_city" placeholder="To (city)">
     </div>
   </div>
-  
-  <button class="btn btn-primary" v-on:click="show" >Search</button>
 
+
+
+  <button class="btn btn-primary" v-on:click="searchFly" >Search</button>
+
+    <hr>
+
+    <div>
+      <vue-good-table
+              :columns="columns"
+              :rows="vuelos"
+              @on-row-click="onRowClick"
+      >
+      </vue-good-table>
+    </div>
 
 	
 	
@@ -30,13 +42,35 @@
   
   
   export default {
+    name: "SearchFly",
+    props: {
+      msg: String
+    },
     
 	data() {
 	
       return {
 		    from_city: "",
         to_city: "",
-        vuelos:[]
+        vuelos:[],
+        columns: [
+          {
+            label: "From",
+            field: "from_city"
+          },
+          {
+            label: "To",
+            field: "to_city",
+          },
+          {
+            label: "Number of seats",
+            field: "seats",
+          },
+          {
+            label: "Price",
+            field: "price",
+          }
+        ]
         
       }
     },
@@ -58,10 +92,14 @@
           console.log(error);
         });
       },
-      show(){
-          console.log(this.from_city);
-
+      onRowClick() {
+        // params.row - row object
+        // params.pageIndex - index of this row on the current page.
+        // params.selected - if selection is enabled this argument
+        // indicates selected or not
+        // params.event - click event
       }
+
       
     }
   }
