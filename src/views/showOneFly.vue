@@ -15,26 +15,39 @@
     <div class="form-group">
         <input type="text" class="form-control"  aria-describedby="text" v-model="vuelo.price" placeholder="Seats">
     </div>
-    <button type="submit" class="btn btn-primary" v-on:click="test">Submit</button>
-       <h1>Here my user id:{{ vuelo.id }}</h1>
+    <button type="submit" class="btn btn-primary" v-on:click="saveChanges">Save changes</button>
     </div>
 </template>
 
 <script>
-
+    const axios = require('axios').default;
     export default {
 
         name: "showOneFly",
         props: ['vuelo'],
         data() {
             return {
+                seats: "",
+                price: ""
+
             }
         },
         methods:{
 
-            test(){
-
-                console.log(self.vuelo);
+            saveChanges(){
+                let self=this;
+                const url = "http://localhost:8080/api/changeFly";
+                axios.post(url, {
+                    seats: self.seats,
+                    price: self.price
+                })
+                    .then(function (response) {
+                        self.vuelos=response.data;
+                        console.log(response.data);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             }
         }
     }
