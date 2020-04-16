@@ -22,9 +22,14 @@
     <div>
       <vue-good-table
               :columns="columns"
-              :rows="vuelos"
-              @on-row-click="onRowClick"
-      >
+              :rows="vuelos">
+        <template slot="table-row" slot-scope="props">
+                                    <span v-if="props.column.field == 'functions'" class="row-control"><button
+                                            class="btn btn-primary btn-sm"
+                                            v-on:click="pushResult(props.row)">Show</button></span>
+          <span v-else class="row-control"> {{props.formattedRow[props.column.field]}}</span>
+        </template>
+
       </vue-good-table>
     </div>
 
@@ -69,7 +74,12 @@
           {
             label: "Price",
             field: "price",
+          },
+          {
+            label: "Button",
+            field: "functions",
           }
+
         ]
         
       }
@@ -92,12 +102,11 @@
           console.log(error);
         });
       },
-      onRowClick() {
-        // params.row - row object
-        // params.pageIndex - index of this row on the current page.
-        // params.selected - if selection is enabled this argument
-        // indicates selected or not
-        // params.event - click event
+      pushResult(props) {
+        console.log("has pinchado");
+        console.log(props);
+        this.$router.push({ name: 'showOneFly',params:{ vuelo:props }});
+
       }
 
       

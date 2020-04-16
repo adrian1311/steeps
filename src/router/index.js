@@ -29,7 +29,13 @@ const routes = [
     path: '/searchFly',
     name: 'searchFly',
     component: () => import(/* webpackChunkName: "about" */ '../views/SearchFly.vue')
+  },{
+    path: '/showOneFly',
+    name: 'showOneFly',
+    component: () => import(/* webpackChunkName: "about" */ '../views/showOneFly.vue'),
+    props: true
   }
+
 ]
 
 const router = new VueRouter({
