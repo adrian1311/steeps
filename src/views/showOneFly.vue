@@ -27,8 +27,9 @@
         props: ['vuelo'],
         data() {
             return {
-                seats: "",
-                price: ""
+                seats: this.vuelo.seats,
+                price: this.vuelo.price,
+                id:this.vuelo.id
 
             }
         },
@@ -38,11 +39,11 @@
                 let self=this;
                 const url = "http://localhost:8080/api/changeFly";
                 axios.post(url, {
-                    seats: self.seats,
-                    price: self.price
+                    id:self.vuelo.id,
+                    seats: self.vuelo.seats,
+                    price: self.vuelo.price
                 })
                     .then(function (response) {
-                        self.vuelos=response.data;
                         console.log(response.data);
                     })
                     .catch(function (error) {
