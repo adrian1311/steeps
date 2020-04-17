@@ -1,7 +1,10 @@
  <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="BIENVENIDO A MI APP"/>
+    <br>
+    <br>
+    <img alt="Vue logo" src="../assets/fly.jpeg" width="750" height="400">
+    <hr>
+    <HelloWorld msg="WELCOME TO MY APP"/>
   </div>
 </template>
 

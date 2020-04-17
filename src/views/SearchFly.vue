@@ -15,7 +15,7 @@
 
 
 
-  <button class="btn btn-primary" v-on:click="searchFly" >Search</button>
+  <button class="btn btn-primary" v-on:click="searchFly" ><img src="../assets/search.png" width="25px" height="25px"  style="margin-right: 7px;">Search</button>
 
     <hr>
 

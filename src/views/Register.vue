@@ -11,9 +11,9 @@
 				<label for="exampleInputPassword1">Password</label>
 				<input type="password" class="form-control" placeholder="Password" v-model="registration_password">
 		  </div>
-			<button type="button" class="btn btn-primary"  v-on:click="registerUser" >Save User</button>
+			<button type="button" class="btn btn-primary"  v-on:click="registerUser"><img src="../assets/addUser.png" width="25px" height="25px"  style="margin-right: 7px;">Add User</button>
       <hr>
-      <button type="button" class="btn btn-primary"  v-on:click="getUsers" >Show all users</button>
+      <button type="button" class="btn btn-primary"  v-on:click="getUsers" ><img src="../assets/search.png" width="25px" height="25px"  style="margin-right: 7px;">Show all users</button>
       <div>
       <hr>
       <!--ul>

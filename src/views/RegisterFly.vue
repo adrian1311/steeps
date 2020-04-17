@@ -24,7 +24,7 @@
     </div>
   </div>
   
-  <button type="submit" class="btn btn-primary" v-on:click="registerFly" >Create new Fly</button>
+  <button type="submit" class="btn btn-primary" v-on:click="registerFly" ><img src="../assets/create.png" width="25px" height="25px"  style="margin-right: 7px;">Create new Fly</button>
 </form>
 	
 	
