@@ -6,6 +6,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueGoodTable from 'vue-good-table'
 import 'vue-good-table/dist/vue-good-table.css'
+import Datepicker from 'vuejs-datepicker';
 
 Vue.use(VueAxios, axios);
 Vue.use(VueGoodTable);
@@ -17,5 +18,6 @@ new Vue({
   store,
   axios,
   VueGoodTable,
+  Datepicker,
   render: h => h(App)
 }).$mount('#app')

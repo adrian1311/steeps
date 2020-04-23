@@ -2,7 +2,7 @@
   <div>
     <h1>Register new fly : </h1>
 	
-      <form>
+
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>From</label>
@@ -22,10 +22,21 @@
       <label >Price</label>
       <input type="text" class="form-control" id="price" v-model="price" placeholder="Price">
     </div>
+    <div class="form-group col-md-6">
+      <label>Дата на полета:</label>
+      <datepicker
+              v-model="date"
+              placeholder="dd/MM/yyyy"
+              :clear-button=true
+              :monday-first=true
+              :bootstrap-styling=true
+              format="dd/MM/yyyy">
+      </datepicker>
+    </div>
   </div>
   
   <button type="submit" class="btn btn-primary" v-on:click="registerFly" ><img src="../assets/create.png" width="25px" height="25px"  style="margin-right: 7px;">Create new Fly</button>
-</form>
+
 	
 	
   </div>
@@ -37,17 +48,20 @@
   
   /*import http client*/
    const axios = require('axios').default;
-  
+  import Datepicker from 'vuejs-datepicker';
   
   export default {
-    
+    components: {
+      Datepicker
+    },
 	data() {
 	
       return {
 		    from_city: "",
         to_city: "",
         seats:"",
-        price:""
+        price:"",
+        date:""
         
       }
     },
@@ -60,7 +74,9 @@
                     from_city: this.from_city,
                     to_city: this.to_city,
                     seats: this.seats,
-                    price: this.price
+                    price: this.price,
+                    date:this.date
+
                 })
         .then(function (response) {
           console.log(response);
